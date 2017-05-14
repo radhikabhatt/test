@@ -13,7 +13,7 @@
             %th
               Review Your Answers
 
-            - @tests.each do |test|
+            - @tests.order("created_at DESC").each do |test|
               - if test.score.present?
                 %tr
                   %td
