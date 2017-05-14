@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require semantic_ui/semantic_ui
+ *= require_tree .
+ *= require_self
+ */
+
+.position_absolute{
+  position: absolute !important;
+}
+
+.z_index_increased{
+  z-index: 100;
+}
+.flash_center{
+  margin: 0 auto !important;
+  top: 0;
+  bottom: 0;
+  width: 60%;
+  height: 45px;
+  right: 0;
+  left: 0;
+}
+
+body > .middle.grid{
+  height: 100%;
+}
+
+
+.ui.grid:after, .ui.row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.no_top_margin{
+  margin-top: 0 !important;
+}
+.disable_link{
+  pointer-events: none;
+}
+.score_card{
+  height: 50px;
+  width: 50% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: x-large;
+  text-align: center;
+  vertical-align: -webkit-baseline-middle;
+  padding-top: 1% !important;
+  margin-top: 5% !important;
+}

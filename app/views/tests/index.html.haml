@@ -1,0 +1,29 @@
+.row
+  .sixteen.wide.column
+    .ui.segment
+      %table.ui.celled.structured.table#users_table
+        %thead
+          %tr
+            %th
+              Test name
+            %th
+              Score
+            %th
+              Time Stamp
+            %th
+              Review Your Answers
+
+            - @tests.each do |test|
+              - if test.score.present?
+                %tr
+                  %td
+                    = test.description
+
+                  %td
+                    = test.score
+
+                  %td
+                    = test.created_at
+
+                  %td
+                    = link_to "Review", review_test_question_path(test.test_questions.first.id), class: "ui huge primary button"

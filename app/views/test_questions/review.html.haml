@@ -1,0 +1,20 @@
+.ui.bottom.attached.segment{style: "height: 91.4%"}
+  .ui.sixteen.column.grid
+    .twelve.wide.column.centered.aligned
+      .ui.fluid.raised.card
+        .content
+          .header.ui.center.aligned
+            = @question.question_text.html_safe
+        .extra.content
+          .ui.sixteen.column.grid
+            - @question.options.each do |option|
+              .sixteen.wide.column.centered.aligned
+                = link_to user_response_test_question_path(@test_question.id, user_response: option.id), disabled: true, data: {option_id: option.id}, class: ("fluid ui button disable_link options" + (" active" if option.id == @test_question.user_response).to_s) do
+                  = option.description.html_safe
+        .extra.content
+        .ui.two.bottom.attached.buttons
+          =link_to "Previous", review_test_question_path(@test_question.id - 1), class: ("ui secondary button" + ("disabled" if @first_question_id == @test_question.id).to_s)
+          - if @last_question_id == @test_question.id
+            =link_to "All Reviews", tests_path, class: "ui primary button"
+          - else
+            =link_to "Next", review_test_question_path(@test_question.id + 1), class: "ui secondary button"
